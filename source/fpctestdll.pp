@@ -23,8 +23,18 @@ program fpctestdll;
 {$MODE OBJFPC}
 {$MODESWITCH UNICODESTRINGS}
 
+// When using {$MODESWITCH UNICODESTRINGS}:
+//   type
+//     PChar = PWideChar;
+//     string = UnicodeString;
+// ...etc. See FPC docs for more information.
+
 uses
   Windows;
+
+// Notes on below types, affected by {$MODESWITCH UNICODESTRINGS}:
+// * 'PPChar = ^PChar' was an omission in FPC that should be fixed later
+// * 'TArrayOfString' is a dynamic array of UnicodeStrings
 
 type
   PPChar = ^PChar;

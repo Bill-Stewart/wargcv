@@ -22,13 +22,22 @@ program testunit;
 {$MODE OBJFPC}
 {$MODESWITCH UNICODESTRINGS}
 
+// With {$MODESWITCH UNICODESTRINGS}, the following apply:
+//   type
+//     string = UnicodeString;
+//     PChar = PWideChar;
+// In addition to the above, when using the wargcv unit:
+//   type
+//     PPChar = ^PChar;  // i.e., PPChar = PPWideChar
+// (The added PPChar type in wargcv shouldn't be needed past FPC 3.2.2)
+
 uses
   Windows,
   wargcv;
 
 var
   I, C: Integer;
-  arg: PChar;
+  Tail: string;
 
 begin
   WriteLn('argc = ', argc);
@@ -43,6 +52,6 @@ begin
 
   WriteLn();
   I := 2;
-  arg := GetCommandTail(GetCommandLineW(), I);
-  WriteLn('Unparsed command line starting at arg ', I, ': ', string(arg));
+  Tail := string(GetCommandTail(GetCommandLineW(), I));
+  WriteLn('Unparsed command line starting at arg ', I, ': ', Tail);
 end.

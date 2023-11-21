@@ -106,7 +106,7 @@ This section describes the argument parsing rules, variables, and functions avai
 
 ### Command Line Parsing Rules
 
-Command line arguments are delimited by whitespace (spaces or tabs). Whitespace can be included in an argument by enclosing the argument in quote characters (`"`). To include a quote character in an argument, double the quoted character (i.e., `""`) within the quoted string. Quote marks that enclose arguments containing whitespace are not part of the argument. See the following table for examples:
+Command line arguments are delimited by whitespace (spaces or tabs). Whitespace can be included in an argument by enclosing the argument in quote characters (`"`). To include a quote character in an argument, double the quote character (i.e., `""`) within the quoted string. Quote marks that enclose arguments containing whitespace are not part of the argument. See the following table for examples:
 
 | Command Line        | Program Name | 1st Argument | 2nd Argument
 | ------------        | ------------ | ------------ | ------------
@@ -136,18 +136,16 @@ If you are running a program from the PowerShell command line, keep in mind that
 
 #### argc
 
-The `argc` variable is an `Integer` that contains the count of arguments on the command line and is always at least 1. The program name at the beginning of the command line is numbered 0, the program's first command line argument is numbered 1, and so forth. The number of arguments specified on a program's command line is thus `argc - 1`. The `argc` variable should be treated as read-only.
+The `argc` variable is an `Integer` that contains the count of arguments on the command line and is always at least 1. The command name at the beginning of the command line is numbered 0, the command's first command line argument is numbered 1, and so forth. The number of arguments specified on a program's command line is thus `argc - 1`. The `argc` variable should be treated as read-only.
 
 It is recommended to use the **ParamCount** function (below) rather than the **argc** variable.
 
 #### argv
 
-The `argv` variable is an array of pointers to null-ternminated strings, where each string is an individual argument on the command line. The pseudocode to iterate all of the command line arguments is as follows (where `I` is an `Integer` variable):
+The `argv` variable is an array of pointers to null-terminated strings (`PPWideChar`), where each string is an individual argument on the command line. The pseudocode to iterate all of the command line arguments is as follows (where `I` is an `Integer` variable):
 
     for I := 0 to argc - 1 do
       // argv[I] is an individual argument from the command line
-
-If FPC's **UNICODESTRINGS** mode is on, `argv` is of type `PChar`; otherwise, `argv` is of type `PPWideChar`.
 
 The `argv` array is dynamically allocated and automatically disposed, and should be treated as read-only. Accessing an array index higher than `argc - 1` will cause a run-time error and crash the program.
 
@@ -163,9 +161,9 @@ The **ParamCount** function returns the number of arguments (sometimes also call
 
 #### ParamStr
 
-Syntax with FPC **UNICODESTRINGS** mode on: `function ParamStr(N: Integer): string;`
+Syntax: `function ParamStr(N: Integer): UnicodeString;`
 
-Syntax with FPC **UNICODESTRINGS** mode off: `function ParamStr(N: Integer): UnicodeString;`
+> NOTE: If FPC's **UNICODESTRINGS** mode is on, `string = UnicodeString`.
 
 The **ParamStr** function returns an argument from the command line as a string by its index. The program's first command line argument is index 1, the second argument is index 2, and so forth. Index 0 is the full path and filename of the current program. Specifying a non-existent argument index returns an empty string.
 
@@ -183,9 +181,9 @@ The following table lists the results from calling the **ParamStr** function:
 
 #### GetCommandTail
 
-Syntax with FPC **UNICODESTRINGS** mode on: `function GetCommandTail(lpCmdLine: PChar; StartArg: Integer): PChar;`
+Syntax: `function GetCommandTail(lpCmdLine: PWideChar; StartArg: Integer): PWideChar;`
 
-Syntax with FPC **UNICODESTRINGS** mode off: `function GetCommandTail(lpCmdLine: PWideChar; StartArg: Integer): PWideChar;`
+> NOTE: If FPC's **UNICODESTRINGS** mode is on, `PChar  = PWideChar`.
 
 The **GetCommandTail** function returns a pointer to a null terminated string that represents the unparsed remainder of the command line starting at a specified argument. This function is useful for programs that need "stop parsing" functionality (for example, to pass along a partial command line to another program without any further parsing).
 

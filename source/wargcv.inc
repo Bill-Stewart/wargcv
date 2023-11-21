@@ -15,6 +15,8 @@
 
 }
 
+// NOTE: Should be compiled with {$MODESWITCH UNICODESTRINGS}
+
 // Used for ParamStr(0) and CommandLinetoArgv with an empty command line
 function GetFullModuleFileName(): string;
 const

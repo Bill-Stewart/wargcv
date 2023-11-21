@@ -46,7 +46,7 @@ This section describes the argument parsing rules and functions available in **w
 
 ### Command Line Parsing Rules
 
-Command line arguments are delimited by whitespace (spaces or tabs). Whitespace can be included in an argument by enclosing the argument in quote characters (`"`). To include a quote character in an argument, double the quoted character (i.e., `""`) within the quoted string. Quote marks that enclose arguments containing whitespace are not part of the argument. See the following table for examples:
+Command line arguments are delimited by whitespace (spaces or tabs). Whitespace can be included in an argument by enclosing the argument in quote characters (`"`). To include a quote character in an argument, double the quote character (i.e., `""`) within the quoted string. Quote marks that enclose arguments containing whitespace are not part of the argument. See the following table for examples:
 
 | Command Line        | Program Name | 1st Argument | 2nd Argument
 | ------------        | ------------ | ------------ | ------------
@@ -124,7 +124,7 @@ C/C++:
 
 Pascal:
 
-`function GetCommandTail(lpCmdLine: LPCWSTR; StartArg: PINT): LPWSTR;`
+`function GetCommandTail(lpCmdLine: LPCWSTR; StartArg: INT): LPWSTR;`
 
 #### Parameters
 
