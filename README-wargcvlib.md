@@ -21,7 +21,7 @@
 
 ## Copyright and Author
 
-Copyright (C) 2023 by Bill Stewart (bstewart at iname.com)
+Copyright (C) 2023-2024 by Bill Stewart (bstewart at iname.com)
 
 ## License
 

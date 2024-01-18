@@ -311,7 +311,7 @@ begin
                    if opterr then
                     writeln(ParamStr(0),': option ',pfound^.name,' requires an argument');
                    nextchar:=0;
-                   if optstring[1]=':' then
+                   if (length(optstring)>0) and (optstring[1]=':') then
                     Internal_getopt:=':'
                    else
                     Internal_getopt:='?';

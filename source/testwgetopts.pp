@@ -1,4 +1,4 @@
-{ Copyright (C) 2023 by Bill Stewart (bstewart at iname.com)
+{ Copyright (C) 2023-2024 by Bill Stewart (bstewart at iname.com)
 
   This program is free software; you can redistribute it and/or modify it under
   the terms of the GNU Lesser General Public License as published by the Free

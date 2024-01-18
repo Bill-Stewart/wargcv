@@ -1,6 +1,6 @@
 1 VERSIONINFO
-FILEVERSION 1,0,1,0
-PRODUCTVERSION 1,0,1,0
+FILEVERSION 1,0,2,0
+PRODUCTVERSION 1,0,2,0
 FILEOS 0x4
 FILETYPE 2
 {
@@ -10,12 +10,12 @@ FILETYPE 2
     {
       VALUE "CompanyName", "Bill Stewart (bstewart at iname.com)"
       VALUE "FileDescription", "wargcvlib.dll"
-      VALUE "FileVersion", "1.0.1.0"
+      VALUE "FileVersion", "1.0.2.0"
       VALUE "InternalName", "wargcvlib.dll"
-      VALUE "LegalCopyright", "(C) 2023 by Bill Stewart (bstewart at iname.com)"
+      VALUE "LegalCopyright", "(C) 2023-2024 by Bill Stewart (bstewart at iname.com)"
       VALUE "OriginalFilename", "wargcvlib.dll"
       VALUE "ProductName", "wargcvlib.dll"
-      VALUE "ProductVersion", "1.0.1.0"
+      VALUE "ProductVersion", "1.0.2.0"
     }
   }
 
